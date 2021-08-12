@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/estilo.css">
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/script.js"></script>
+  
+
+  <title>Otimização de planilha</title>
+</head>
+  <body class="img-fluid">
+	  <form action="" class="g-3">
+		  <!-- conteudo -->a
+				<div class="container box" >
+					<h1>teste</h1>
+					<!-- botões -->
+					<div class="mt-6 text-center mt-5">
+						<button type="button" class="btn btn-primary me-1 btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+							Adicionar Ofício
+						</button>
+
+						<button type="button" class="btn btn-primary  btn-lg" id="btn_indicacao" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							Adicionar Indicação
+						</button>
+
+						<button type="button" class="btn btn-primary btn-lg ms-1 " data-bs-toggle="modal" data-bs-target="#exampleModal3">
+							Consultar
+						</button>
+					</div>
+					<!-- botões -->
+					
+						<!-- Popup Oficio -->
+					<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+						<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel2	">Adicionar ofício</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								
+								<div class="row  ">
+									<div class="col-6">
+										<label for="Data"  class="form-label"><span class="text-uppercase"><span id="required"></span>Data</span></label>
+										<input type="text" class="form-control" placeholder="00/00/0000" aria-label="First name" name="Data" id="outra_data" maxlength="10" onkeypress="mascaraData(this)"  >
+										
+									</div>
+									<div class="col-6"> 
+										<label for="Ofício" class="form-label">  <span class="text-uppercase"><span id="required"></span>Ofício</span> </label>
+										<input type="text" class="form-control"id="Ofício" name="Ofício" placeholder="000/0000" maxlength="8" onkeydown="javascript: fMasc( this, mOFICIO);">
+										
+									</div>
+									
+								</div>
+						
+							
+								<div class="row mt-3">
+									<div class="col-12">
+										<label for="Assunto" class="form-label"> <span class="text-uppercase">Assunto<span id="required"></span></span> </label>
+											<input type="text" id="Assunto" class="form-control col-12" >
+										
+									</div>
+								</div>
+							
+							
+								<div class="row  mt-3">
+									<div class="col-6">
+										<label for="Destino" class="form-label">  <span class="text-uppercase">Destino<span id="required"></span></span> </label>
+										<input type="text" class="form-control"id="Destino">
+									</div>
+									<div class="col-6">
+										<label for="Processo" class="form-label">  <span class="text-uppercase">Processo<span id="required"></span></span> </label>
+										<input type="text" class="form-control"id="Processo">
+									</div>
+									
+								</div>
+							
+								<div class="row  mt-3 mb-3">
+									<div class="col-6">
+										<label for="Deferido" class="form-label">  <span class="text-uppercase">Deferido<span id="required"></span></span> </label>
+										<input type="text" class="form-control"id="Deferido">
+									</div>
+									<div class="col-6">
+										<label for="Observação" class="form-label">  <span class="text-uppercase">Observação</span> </label>
+										<input type="text" class="form-control"id="Observação">
+									</div>
+									
+								</div>
+						
+							
+						</div>
+
+							<div class="modal-footer">
+							<button type="reset" class="btn btn-danger left" data-bs-dismiss="modal">Limpar</button>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">sair</button>
+							<button type="submit" class="btn btn-primary">Salvar</button>
+							</div>
+						</div>
+						</div>
+					</div>
+					<!--  -->
+					<!-- Popup  indicação-->
+					<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Adicionar indicação</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								
+									<div class="row  ">
+										<div class="col-6">
+											<label for="Indicação"  class="form-label"><span class="text-uppercase"><span id="required"></span> Indicação</span></label>
+												<input type="text" class="form-control"  id="Indicação" name="indicacao" placeholder="0000/0000" maxlength="9" onkeydown="javascript: fMasc( this, mindicacao);">
+											
+										</div>
+										<div class="col-6"> 
+											<label for="Vereador" class="form-label">  <span class="text-uppercase"><span id="required"></span>Vereador</span> </label>
+											<input type="text" class="form-control"id="Vereador">
+											
+										</div>
+										
+									</div>
+							
+								
+									<div class="row mt-3">
+										<div class="col-12">
+											<label for="Assunto" class="form-label"> <span class="text-uppercase"><span id="required"></span>Assunto</span> </label>
+												<input type="text" id="Assunto" class="form-control col-12" >
+											
+										</div>
+									</div>
+								
+								
+									<div class="row  mt-3">
+										<div class="col-6">
+											<label for="Destino" class="form-label">  <span class="text-uppercase"><span id="required"></span>Destino</span> </label>
+											<input type="text" class="form-control"id="Destino">
+										</div>
+										<div class="col-6">
+											<label for="Processos" class="form-label">  <span class="text-uppercase"><span id="required"></span>Processos</span> </label>
+											<input type="text" class="form-control"id="Processos">
+										</div>
+										
+									</div>
+								
+									<div class="row  mt-3 mb-3">
+										<div class="col-6">
+											<label for="Deferido" class="form-label">  <span class="text-uppercase"><span id="required"></span>Deferido</span> </label>
+											<input type="text" class="form-control"id="Deferido">
+										</div>
+										<div class="col-6">
+											<label for="Observação" class="form-label">  <span class="text-uppercase">Observação</span> </label>
+											<input type="text" class="form-control"id="Observação">
+										</div>
+										
+									</div>
+							
+								
+							</div>
+							<div class="modal-footer">
+							<button type="reset" class="btn btn-danger left" data-bs-dismiss="modal">Limpar</button>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">sair</button>
+							<button type="submit" class="btn btn-primary">Salvar</button>
+							</div>
+						</div>
+						</div>
+					</div>
+					<!--  -->
+					<!-- Popup Constulta -->
+					<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+						<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel3	">Consultar</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								
+								<div class="row mb-3 ">
+									<div class="col-6">
+										<label for="Data"  class="form-label"><span class="text-uppercase">Data</span></label>
+										<input type="text" class="form-control" placeholder="00/00/0000" aria-label="First name" name="nascimento" id="outra_data" maxlength="10" onkeypress="mascaraData(this)"  >
+										
+									</div>
+									<div class="col-6"> 
+										<label for="Ofício" class="form-label">  <span class="text-uppercase">Ofício</span> </label>
+										<input type="text" class="form-control"id="Ofício" name="oficio" placeholder="000/0000" maxlength="8" onkeydown="javascript: fMasc( this, mOFICIO);">
+										
+									</div>
+									
+								</div>
+						
+								<div class="row">
+									<div class="text-center col-12">
+										<p>OU</p>
+									</div>
+								</div>
+								<div class="row ">
+									<div class="col-6">
+										<label for="Indicação"  class="form-label"><span class="text-uppercase">Indicação</span></label>
+											<input type="text" class="form-control"  id="Indicação" name="indicacao" placeholder="0000/0000" maxlength="9" onkeydown="javascript: fMasc( this, mindicacao);">
+										
+									</div>
+									<div class="col-6"> 
+										<label for="Vereador" class="form-label">  <span class="text-uppercase">Vereador</span> </label>
+										<input type="text" class="form-control"id="Vereador">
+										
+									</div>
+									
+								</div>
+							
+								<div class="row mt-3">
+									<div class="col-12">
+										<label for="Assunto" class="form-label"> <span class="text-uppercase">Assunto</span> </label>
+											<input type="text" id="Assunto" class="form-control col-12" >
+										
+									</div>
+								</div>
+							
+							
+								<div class="row  mt-3">
+									<div class="col-6">
+										<label for="Destino" class="form-label">  <span class="text-uppercase">Destino</span> </label>
+										<input type="text" class="form-control"id="Destino">
+									</div>
+									<div class="col-6">
+										<label for="Processo" class="form-label">  <span class="text-uppercase">Processo</span> </label>
+										<input type="text" class="form-control"id="Processo">
+									</div>
+									
+								</div>
+							
+								<div class="row  mt-3 mb-3">
+									<div class="col-6">
+										<label for="Deferido" class="form-label">  <span class="text-uppercase">Deferido</span> </label>
+										<input type="text" class="form-control"id="Deferido">
+									</div>
+									<div class="col-6">
+										<label for="Observação" class="form-label">  <span class="text-uppercase">Observação</span> </label>
+										<input type="text" class="form-control"id="Observação">
+									</div>
+									
+								</div>
+						
+							
+						</div>
+
+							<div class="modal-footer">
+							<button type="reset" class="btn btn-danger left" data-bs-dismiss="modal">Limpar</button>
+							<button type="submit" class="btn btn-success">Consultar</button>
+						</div>
+						</div>
+						</div>
+					</div>
+					<!--  -->
+				</div>
+			<!--  -->
+		</form>
+	</body>
+</html>
